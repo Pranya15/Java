@@ -7,5 +7,7 @@ class consvowel {
                 v++;
             }
         }
+        System.out.println(v);
     }
+
 }
