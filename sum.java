@@ -1,19 +1,26 @@
-import java.util.Scanner;
-
 public class sum {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter a number (n): ");
-        int n = sc.nextInt();
+        int[] arr = {1, 3, 2, 4, 2};
+        int k = 3;
+        int sum = 0;
+        int n = arr.length;
 
-        int i=1;
-        int sum=0;
-
-        while(i<=n){
-            sum=sum+i;
-            i=i+1;
+        // First window sum
+        for (int i = 0; i < k; i++) {
+            sum += arr[i];
         }
+
+        int maxsum = sum;
+
+        // Sliding window
+        for (int i = k; i < n; i++) {
+            maxsum = maxsum + arr[i] - arr[i - k];
+            if (maxsum > sum) {
+                sum = maxsum;
+            }
+        }
+
         System.out.println(sum);
-        }
     }
+}
